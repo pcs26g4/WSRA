@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000';
-
-// --- API CLIENT ---
 const api = axios.create({
-  baseURL: API_BASE_URL,
-  headers: { 'Content-Type': 'application/json' }
+    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8000',
+    headers: { 'Content-Type': 'application/json' }
 });
+
 
 export const startScan = async (url) => {
   const response = await api.post('/scan/start', { url });
