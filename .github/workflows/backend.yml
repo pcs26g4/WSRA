@@ -1,0 +1,18 @@
+name: Deploy Backend
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Render
+        run: |
+          curl -X POST "https://api.render.com/deploy/srv-d61dfnh4tr6s73ca4sf0?key=ZnOf5H3lK1U"
